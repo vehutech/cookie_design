@@ -1,0 +1,271 @@
+/* Viewport meta tag for proper mobile scaling */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  /* padding: 2rem; */
+  background: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  color: #001973;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.mockMain {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 0;
+}
+
+.mockBlock {
+  width: 30%;
+  height: 120px;
+  background: #eee;
+  border-radius: 8px;
+}
+
+.preloader {
+  animation: pulse 1.5s infinite ease-in-out;
+  background: linear-gradient(-90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+}
+
+@keyframes pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.consentOverlay {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+.panel {
+  width: 90%;
+  /* background: red; */
+  margin: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 80vh; /* Limit height */
+  overflow-y: auto; /* Enable scrolling */
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panelTitle {
+  font-size: 1.25rem;
+  color: #0d42ff;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.panelDesc {
+  color: #444;
+}
+
+.toggleOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.toggleOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: background 0.2s ease;
+}
+
+.optionInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.optionIcon {
+  font-size: 1.5rem;
+}
+
+.optionText {
+  display: flex;
+  flex-direction: column;
+}
+
+.optionLabel {
+  font-weight: bold;
+  color: #0d42ff;
+}
+
+.optionDesc {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.toggleSlider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggleSwitch input:checked + .toggleSlider {
+  background-color: #0d42ff;
+}
+
+.toggleSwitch input:checked + .toggleSlider:before {
+  transform: translateX(26px);
+}
+
+.toggleSwitch input:disabled + .toggleSlider {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+.toggleSwitch input:disabled + .toggleSlider:before {
+  background-color: #bdbdbd;
+}
+
+.consentButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btnPrimary {
+  background-color: #0d42ff;
+  color: white;
+}
+
+.btnOutline {
+  background-color: transparent;
+  color: #0d42ff;
+  border: 1px solid #0d42ff;
+}
+
+.footerNote {
+  font-size: 0.875rem;
+  color: #888;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  /* Responsive adjustments */
+  .panel {
+    padding: 1rem;
+  }
+
+  .panelTitle {
+    font-size: 1.125rem;
+  }
+
+  .toggleOption {
+    padding: 0.75rem;
+  }
+
+  .optionLabel {
+    font-size: 1rem;
+  }
+
+  .optionDesc {
+    font-size: 0.85rem;
+  }
+
+  .toggleSwitch {
+    width: 45px;
+    height: 22px;
+  }
+
+  .toggleSlider:before {
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+  }
+
+  .toggleButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for smaller devices */
+  .panel {
+    padding: 0.75rem;
+  }
+
+  .mockMain {
+    flex-direction: column;
+  }
+
+  .mockBlock {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
