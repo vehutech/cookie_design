@@ -9,6 +9,17 @@ interface BrandPageProps {
     brands: Brand[];
 }
 
+// Dynamically import all .png files in src/assets
+const imageModules = import.meta.glob('/src/assets/*.PNG', { query: '?url', import: 'default', eager: true });
+
+// Create a mapping of brand.id to image URLs
+const imageMap: Record<string, string> = {};
+Object.entries(imageModules).forEach(([path, url]) => {
+    // Extract the filename without extension (e.g., 'tesco' from '/src/assets/tesco.png')
+    const fileName = path.split('/').pop()?.replace('.PNG', '') || '';
+    imageMap[fileName] = url as string;
+});
+
 // Configuration for each brand's initial UI and allowed UI transitions
 const brandUIConfig: Record<string, { initial: string; allowed: string[] }> = {
     tesco: { initial: 'like', allowed: ['like', 'toggle'] },
@@ -57,6 +68,9 @@ function BrandPage({ brands }: BrandPageProps) {
     // Select the current UI component
     const CurrentUIComponent = uiComponents[currentUI] || Like;
 
+    // Get the image URL for the current brand
+    const imageSrc = imageMap[brand.id] || '/fallback.png'; // Fallback image if not found
+
     return (
         <div className="firefox-container">
             <div className="top-nav">
@@ -82,7 +96,7 @@ function BrandPage({ brands }: BrandPageProps) {
                     </div>
 
                     <div className="brand-page-content">
-                        <img src={`/src/assets/${brand.id}.PNG`} alt="Banner" />
+                        <img src={imageSrc} alt="Banner" />
                         <CurrentUIComponent />
                         <div className="brand-cta">
                             <a href={brand.url} target="_blank" rel="noopener noreferrer" className="visit-button">
