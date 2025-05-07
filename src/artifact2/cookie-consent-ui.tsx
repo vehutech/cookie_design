@@ -18,14 +18,7 @@ const CookieConsentUI: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>ARTIFACT 2 – TOGGLE BUTTONS</h2>
-
-      <main className={styles.mockMain}>
-        <div className={`${styles.mockBlock} ${styles.preloader}`} />
-        <div className={`${styles.mockBlock} ${styles.preloader}`} />
-        <div className={`${styles.mockBlock} ${styles.preloader}`} />
-      </main>
-
+     
       {visible && (
         <div className={styles.consentOverlay}>
           <div className={styles.panel}>

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './style.module.css';
 
-const CookieConsentUI: React.FC = () => {
+function CookieConsentUI () {
   const [visible, setVisible] = useState(true);
 
   const handleClose = () => setVisible(false);
@@ -15,38 +15,6 @@ const CookieConsentUI: React.FC = () => {
 
   return (
     <div className={styles.website_container}>
-      <h2>ARTIFACT 1 - LIKE, UNLIKE AND LOVE BUTTONS</h2>
-
-      <header className={styles.header}>
-        <div className={`${styles.logo} ${styles.preloader}`} aria-label="Website logo"></div>
-        <nav className={styles.nav} aria-label="Main navigation">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className={`${styles.nav_link} ${styles.preloader}`} />
-          ))}
-        </nav>
-      </header>
-
-      <main className={styles.main_content}>
-        <section className={`${styles.hero} ${styles.preloader}`} aria-hidden="true">
-          <div className={styles.hero_title}></div>
-          <div className={styles.hero_text}></div>
-          <div className={styles.hero_text}></div>
-        </section>
-
-        <section className={styles.recipe_grid} aria-hidden="true">
-          {[1, 2, 3].map((i) => (
-            <div className={styles.recipe_card} key={i}>
-              <div className={`${styles.recipe_image} ${styles.preloader}`}></div>
-              <div className={styles.recipe_content}>
-                <div className={`${styles.recipe_title} ${styles.preloader}`}></div>
-                <div className={`${styles.recipe_desc} ${styles.preloader}`}></div>
-                <div className={`${styles.recipe_desc} ${styles.preloader}`}></div>
-              </div>
-            </div>
-          ))}
-        </section>
-      </main>
-
       {visible && (
         <div className={styles.cookie_consent} role="dialog" aria-modal="true">
           <div className={styles.cookie_container}>

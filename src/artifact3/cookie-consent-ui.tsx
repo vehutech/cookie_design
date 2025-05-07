@@ -49,24 +49,8 @@ const CookieConsentUI: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
+     
       <div className={styles.container}>
-        <div className={styles.header}>
-          <div className={styles.placeholder} />
-          <div className={styles.headerContent}>
-            {Array(4).fill(null).map((_, idx) => (
-              <div key={idx} className={styles.placeholder} />
-            ))}
-          </div>
-        </div>
-
-        <div className={styles.mainContent}>
-          <div className={styles.mainGradient}></div>
-          <div className={styles.mainText}>
-            <div className={styles.placeholder} />
-            <div className={styles.placeholder} />
-            <div className={styles.placeholder} />
-          </div>
-        </div>
 
         <div className={styles.cookiePreferences}>
           <div className={styles.subHeader}>

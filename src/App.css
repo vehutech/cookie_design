@@ -1,42 +1,371 @@
-#root {
-  max-width: 1280px;
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.firefox-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f1f5f9;
+}
+
+/* Top navigation bar */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.refresh-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  transition: background-color 0.2s;
+}
+
+.refresh-button:hover {
+  background-color: #f3f4f6;
+}
+
+.refresh-button:focus,
+.visit-button:focus,
+.close-button:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.change-ui-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: rgb(97, 160, 255);
+  border: 1px solid #d1d5db;
+  transition: background-color 0.2s;
+  margin: 2rem auto 0 auto;
+  width: fit-content;
+  font-weight: 600;
+  outline: 0.1rem solid #a2c0ff;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  padding: 2rem 1rem;
+}
+
+/* Brand grid */
+.brand-grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  border: 0.5rem solid #383a3b;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.brand-grid > div {
+  border: 0.2rem solid #383a3b;
+  background-color: #e1f0ff;
+}
+
+.brand-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.brand-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.brand-tile:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #f3f4f6;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+}
+
+.brand-icon span {
+  font-size: 1.5rem;
+}
+
+.brand-name {
+  font-size: 0.875rem;
+  text-align: center;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+/* Brand landing page */
+.brand-page-container {
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.brand-banner {
+  width: 100%;
+  background-color: #e1f0ff;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.brand-page {
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.brand-page-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.brand-page-header img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.brand-page-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: #f3f4f6;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.brand-page-icon span {
+  font-size: 1.5rem;
+}
+
+.brand-page-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.close-button {
+  margin-left: auto;
+  font-size: 1.5rem;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-button:hover {
+  color: #374151;
+}
+
+.brand-page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+
+
+.brand-welcome {
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.brand-welcome h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.brand-welcome p {
+  color: #4b5563;
+}
+
+.brand-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.brand-info-card {
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.brand-info-card h4 {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.brand-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.brand-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.visit-button {
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.visit-button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #e2e8f0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.footer-links span {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-links span:hover {
+  color: #374151;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .brand-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .brand-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .main-content {
+    padding: 1rem 0.5rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  .brand-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.75rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  .brand-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .brand-icon span {
+    font-size: 1.25rem;
+  }
+  
+  .brand-name {
+    font-size: 0.75rem;
+  }
+  
+  .brand-page-header {
+    flex-wrap: wrap;
+  }
+  
+  .close-button {
+    margin-left: auto;
+  }
+  
+  .nav-title {
+    font-size: 1rem;
+  }
+  
+  .refresh-button {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .footer-links {
+    gap: 1rem;
+    font-size: 0.75rem;
+  }
 }
