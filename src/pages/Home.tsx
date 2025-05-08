@@ -3,6 +3,7 @@
 
 import { Link } from 'react-router-dom';
 import { Brand } from '../data/brand';
+import Header from '../components/Header';
 import '../App.css';
 
 interface HomeProps {
@@ -12,14 +13,17 @@ interface HomeProps {
 function Home({ brands }: HomeProps) {
   return (
     <div className="firefox-container">
+
+      <Header />
+
       <div className="top-nav">
-        <div className="nav-title">Brand Directory</div>
+        <div className="nav-title">Platform Case Study</div>
         <button className="refresh-button" onClick={() => window.location.reload()}>🔃 Refresh</button>
       </div>
 
       <div className="main-content">
         <div className="brand-grid-container">
-         
+
           <div className="brand-grid">
             {brands.map(brand => (
               <Link to={`/brand/${brand.id}`} key={brand.id} className="brand-tile">
@@ -34,8 +38,8 @@ function Home({ brands }: HomeProps) {
 
       <footer className="footer">
         <div className="footer-links">
-          <span>Privacy</span>
-          <span>Terms</span>
+          <span>Designing a Privacy-Centric Cookie Consent Interface to Enhance User Understanding and Compliance</span>
+          {/* <span>Terms</span> */}
         </div>
       </footer>
     </div>

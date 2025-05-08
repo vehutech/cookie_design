@@ -1,0 +1,156 @@
+/* header.css */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Header container */
+  .project-header {
+    background: linear-gradient(135deg, #1a365d 0%, #2a4365 50%, #2d3748 100%);
+    /* border-radius: 12px; */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    padding: 32px;
+    width: 100%;
+    /* max-width: 900px; */
+    margin: 0 auto;
+  }
+  
+  /* Header top section with logo and info */
+  .header-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  /* Logo container */
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-container img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    background-color: white;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Project info */
+  .project-info {
+    text-align: center;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    padding: 24px;
+    border-radius: 8px;
+    width: 100%;
+  }
+  
+  .project-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+  }
+  
+  .project-topic {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: #e0f2fe;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    border-left: 4px solid #60a5fa;
+  }
+  
+  .author-name {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  
+  .degree {
+    font-size: 16px;
+    font-weight: 300;
+    color: #e2e8f0;
+    letter-spacing: 1px;
+  }
+  
+  /* Tags section */
+  .tags {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .tag {
+    background-color: #2b6cb0;
+    color: white;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  
+  .tag.secondary {
+    background-color: #4c51bf;
+  }
+  
+  .tag.tertiary {
+    background-color: #6b46c1;
+  }
+  
+  /* Footer section with additional info */
+  .header-footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e2e8f0;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  /* Responsive styles */
+  @media (min-width: 768px) {
+    .header-top {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    
+    .project-info {
+      text-align: right;
+      width: auto;
+      flex-grow: 1;
+      margin-left: 24px;
+    }
+    
+    .tags {
+      justify-content: flex-end;
+    }
+    
+    .project-topic {
+      text-align: right;
+    }
+  }
+  
+  /* Add some animation for a modern feel */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .project-header {
+    animation: fadeIn 0.5s ease-out forwards;
+  }

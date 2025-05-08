@@ -4,13 +4,29 @@ import Like from '../artifact1/cookie-consent-ui';
 import Toggle from '../artifact2/cookie-consent-ui';
 import Check from '../artifact3/cookie-consent-ui';
 import { useState } from 'react';
+import Header from './Header';
 
 interface BrandPageProps {
     brands: Brand[];
 }
 
 // Dynamically import all .png files in src/assets
-const imageModules = import.meta.glob('/src/assets/*.PNG', { query: '?url', import: 'default', eager: true });
+const imageModules = import.meta.glob('/src/assets/*.PNG', {
+    query: '?url',
+    import: 'default',
+    eager: true
+});
+
+
+// Dynamically import all .png files in src/assets
+const Module_freshityBanner = import.meta.glob('/src/assets/*.png', {
+    query: '?url',
+    import: 'default',
+    eager: true
+});
+
+// Get the specific image by filename
+const freshityBanner = Module_freshityBanner['/src/assets/freshity_banner.png'] as string;
 
 // Create a mapping of brand.id to image URLs
 const imageMap: Record<string, string> = {};
@@ -71,10 +87,25 @@ function BrandPage({ brands }: BrandPageProps) {
     // Get the image URL for the current brand
     const imageSrc = imageMap[brand.id] || '/fallback.png'; // Fallback image if not found
 
+    const getUIReadableName = (ui: string): string => {
+        switch (ui) {
+            case 'like':
+                return 'Like/Love Buttons';
+            case 'toggle':
+                return 'Toggle Switches';
+            case 'check':
+                return 'Checkboxes';
+            default:
+                return formatUIName(ui);
+        }
+    };
+    
+
     return (
         <div className="firefox-container">
+            <Header/>
             <div className="top-nav">
-                <div className="nav-title">{brand.name} Overview</div>
+                <div className="nav-title">Platform - {brand.name}</div>
                 <button className="refresh-button" onClick={() => navigate(-1)}>Back</button>
             </div>
 
@@ -83,7 +114,8 @@ function BrandPage({ brands }: BrandPageProps) {
                     className="change-ui-button"
                     onClick={handleChangeUI}
                 >
-                    Change cookie design to {formatUIName(nextUI)} UI
+                    Change Preferred Consent Mechanism to {getUIReadableName(nextUI)}
+
                 </button>
             )}
 
@@ -96,7 +128,7 @@ function BrandPage({ brands }: BrandPageProps) {
                     </div>
 
                     <div className="brand-page-content">
-                        <img src={imageSrc} alt="Banner" />
+                        <img src={brand.id === "freshity" ? freshityBanner : imageSrc} alt="Banner" />
                         <CurrentUIComponent />
                         <div className="brand-cta">
                             <a href={brand.url} target="_blank" rel="noopener noreferrer" className="visit-button">
