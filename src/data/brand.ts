@@ -1,13 +1,3 @@
-// Eagerly import all .PNG assets from the folder
-const imageModules = import.meta.glob('/src/assets/*.PNG', {
-  query: '?url',
-  import: 'default',
-  eager: true
-});
-
-// Get the specific image by filename
-const freshityLogo = imageModules['/src/assets/freshity.PNG'] as string;
-
 export interface Brand {
   id: string;
   name: string;
@@ -112,7 +102,7 @@ export const brands: Brand[] = [
   {
     id: 'freshity',
     name: 'Freshity',
-    logo: freshityLogo,
+    logo: "",
     url: 'https://www.freshity.com',
     description: 'Health food retailer specializing in fresh, organic produce and meals.',
     info: {

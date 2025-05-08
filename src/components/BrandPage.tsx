@@ -28,6 +28,9 @@ const Module_freshityBanner = import.meta.glob('/src/assets/*.png', {
 // Get the specific image by filename
 const freshityBanner = Module_freshityBanner['/src/assets/freshity_banner.png'] as string;
 
+// Get the specific image by filename
+const freshityLogo = imageModules['/src/assets/freshity.PNG'] as string;
+
 // Create a mapping of brand.id to image URLs
 const imageMap: Record<string, string> = {};
 Object.entries(imageModules).forEach(([path, url]) => {
@@ -122,7 +125,7 @@ function BrandPage({ brands }: BrandPageProps) {
             <div className="main-content brand-page-container">
                 <div className="brand-page">
                     <div className="brand-page-header">
-                        <img src={brand.logo} alt="" />
+                        <img src={brand.id === "freshity" ? freshityLogo: brand.logo} alt="" />
                         <div className="brand-page-title">{brand.name}</div>
                         <button className="close-button" onClick={() => navigate('/')}>×</button>
                     </div>
